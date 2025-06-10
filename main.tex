@@ -1,0 +1,284 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{shadowtext}
+\usepackage{tcolorbox}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage{lipsum}
+
+% Define custom colors
+\definecolor{primaryred}{RGB}{139, 0, 0}
+\definecolor{goldaccent}{RGB}{255, 215, 0}
+\definecolor{warmgray}{RGB}{85, 85, 85}
+\definecolor{lightgray}{RGB}{245, 245, 245}
+\definecolor{darkgray}{RGB}{64, 64, 64}
+\definecolor{elitegold}{RGB}{218, 165, 32}
+\definecolor{deepred}{RGB}{128, 0, 0}
+
+% Custom tikz styles
+\tikzset{
+    flame/.style={
+        fill=primaryred,
+        draw=primaryred!80!black,
+        thick
+    },
+    grill/.style={
+        fill=darkgray,
+        draw=black,
+        thick
+    }
+}
+
+\pagestyle{empty}
+
+\begin{document}
+
+% Perfect centering using absolute positioning
+\begin{tikzpicture}[remember picture,overlay]
+    % Elegant gradient background
+    \shade[top color=primaryred!8, bottom color=primaryred!15] 
+        (current page.south west) rectangle (current page.north east);
+    
+    % Subtle texture overlay
+    \foreach \i in {1,...,50} {
+        \fill[primaryred!2, opacity=0.3] 
+            (rand*21, rand*29.7) circle (0.5pt);
+    }
+\end{tikzpicture}
+
+% Center content using absolute positioning
+\begin{tikzpicture}[remember picture,overlay]
+\node[anchor=center] at (current page.center) {
+    \begin{minipage}{16cm}
+        
+        % Main elegant frame
+        \begin{tcolorbox}[
+            width=16cm,
+            colback=white,
+            colframe=deepred,
+            boxrule=3pt,
+            arc=15pt,
+            boxsep=8pt,
+            enhanced,
+            drop shadow={primaryred!40},
+            shadow xshift=3pt,
+            shadow yshift=-3pt,
+            borderline={0.5pt}{-2pt}{elitegold}
+        ]
+        
+        % Elite header section
+        \begin{center}
+            % Premium BBQ graphics
+            \begin{tikzpicture}[scale=0.6, transform shape]
+                % Enhanced grill base with gradient
+                \shade[top color=darkgray!80, bottom color=darkgray] 
+                    (-3.5,-0.8) rectangle (3.5,0.2);
+                \shade[top color=darkgray, bottom color=darkgray!60] 
+                    (-3.8,-1.0) rectangle (3.8,-0.8);
+                
+                % Premium grill grates with depth
+                \foreach \x in {-3,-2,-1,0,1,2,3} {
+                    \draw[very thick, darkgray!80] (\x,-0.5) -- (\x,0.5);
+                    \draw[thick, darkgray!40] (\x+0.05,-0.45) -- (\x+0.05,0.45);
+                }
+                
+                % Dynamic flames with gradient
+                \foreach \x/\h in {-2.5/2.2, -1/1.8, 0.5/2.0, 2/1.9} {
+                    \shade[bottom color=primaryred, top color=orange!80] 
+                        (\x,0.2) .. controls (\x+0.2,\h*0.4) and (\x-0.1,\h*0.7) .. (\x,\h);
+                    \shade[bottom color=orange!90, top color=yellow!80] 
+                        (\x+0.4,0.2) .. controls (\x+0.6,\h*0.3) and (\x+0.2,\h*0.6) .. (\x+0.4,\h*0.8);
+                }
+                
+                % Gourmet meat pieces
+                \shade[inner color=brown!60!red, outer color=brown!80!red] 
+                    (-2.2,0) ellipse (0.4 and 0.2);
+                \shade[inner color=brown!60!red, outer color=brown!80!red] 
+                    (0,0) ellipse (0.35 and 0.18);
+                \shade[inner color=brown!60!red, outer color=brown!80!red] 
+                    (2,0) ellipse (0.38 and 0.19);
+                
+                % Smoke effect
+                \foreach \x in {-2.2, 0, 2} {
+                    \draw[gray!40, line width=0.5pt, opacity=0.6] 
+                        (\x,0.2) .. controls (\x+0.3,1) and (\x-0.2,1.5) .. (\x+0.1,2.5);
+                }
+            \end{tikzpicture}
+            
+            \vspace{0.3cm}
+            
+            % Elite title with shadow effect
+            {\fontsize{32}{38}\selectfont 
+                \textcolor{deepred}{\shadowtext{\textbf{BBQ PARTY}}}}
+            
+            \vspace{0.1cm}
+            
+            {\fontsize{16}{20}\selectfont 
+                \textcolor{elitegold}{\textbf{━━━ 2025 ━━━}}}
+            
+            \vspace{0.2cm}
+            
+            % Elegant decorative element
+            \begin{tikzpicture}[scale=0.8]
+                \draw[elitegold, line width=2pt] (-5,0) -- (-1,0);
+                \draw[elitegold, line width=2pt] (1,0) -- (5,0);
+                \fill[elitegold] (0,0) circle (4pt);
+                \draw[elitegold, thick] (0,0) circle (6pt);
+            \end{tikzpicture}
+            
+        \end{center}
+
+        \vspace{0.4cm}
+
+        % Premium event details
+        \begin{center}
+            
+            % Venue section
+            \begin{tcolorbox}[
+                width=14cm,
+                colback=primaryred!6,
+                colframe=primaryred!80,
+                boxrule=2pt,
+                arc=10pt,
+                left=12pt,
+                right=12pt,
+                top=8pt,
+                bottom=8pt,
+                enhanced,
+                borderline={0.5pt}{-1pt}{elitegold!60}
+            ]
+                \begin{center}
+                    {\Large \textcolor{deepred}{\textbf{✦ VENUE ✦}}}\\[0.2cm]
+                    {\large \textbf{SHAH HOUSE}}\\[0.1cm]
+                    {\normalsize House No. B-3, Row B, Block 2}\\
+                    {\normalsize Kaneez Fatima Society, Karachi, Pakistan}
+                \end{center}
+            \end{tcolorbox}
+
+            \vspace{0.2cm}
+
+            % Date & Time section
+            \begin{tcolorbox}[
+                width=14cm,
+                colback=elitegold!8,
+                colframe=elitegold!70,
+                boxrule=2pt,
+                arc=10pt,
+                left=12pt,
+                right=12pt,
+                top=8pt,
+                bottom=8pt,
+                enhanced,
+                borderline={0.5pt}{-1pt}{primaryred!40}
+            ]
+                \begin{center}
+                    {\Large \textcolor{darkgray}{\textbf{⏰ DATE \& TIME}}}\\[0.2cm]
+                    {\large \textbf{Saturday, 14th June 2025}}\\[0.1cm]
+                    {\normalsize Evening onwards}\\
+                    {\small \textit{(Stay for Fajr prayer together)}}
+                \end{center}
+            \end{tcolorbox}
+
+            \vspace{0.2cm}
+
+            % Contribution section
+            \begin{tcolorbox}[
+                width=14cm,
+                colback=warmgray!8,
+                colframe=warmgray!80,
+                boxrule=2pt,
+                arc=10pt,
+                left=12pt,
+                right=12pt,
+                top=8pt,
+                bottom=8pt,
+                enhanced,
+                borderline={0.5pt}{-1pt}{elitegold!50}
+            ]
+                \begin{center}
+                    {\Large \textcolor{warmgray}{\textbf{�� CONTRIBUTION}}}\\[0.2cm]
+                    
+                    \begin{tabular}{>{\centering\arraybackslash}m{5cm}|>{\centering\arraybackslash}m{5cm}}
+                        \textbf{\large With Meat} & \textbf{\large Without Meat} \\[0.1cm]
+                        \hline\\[-0.1cm]
+                        {\Large \textcolor{primaryred}{\textbf{Rs. 500/-}}} & 
+                        {\Large \textcolor{primaryred}{\textbf{Rs. 1000/-}}} \\[0.1cm]
+                        \textcolor{darkgray}{\footnotesize per person} & 
+                        \textcolor{darkgray}{\footnotesize per person}
+                    \end{tabular}
+                \end{center}
+            \end{tcolorbox}
+
+        \end{center}
+
+        \vspace{0.3cm}
+
+        % Important notice with premium styling
+        \begin{tcolorbox}[
+            width=15cm,
+            colback=primaryred!10,
+            colframe=primaryred!70,
+            boxrule=2.5pt,
+            arc=12pt,
+            left=10pt,
+            right=10pt,
+            top=8pt,
+            bottom=8pt,
+            enhanced,
+            borderline={1pt}{-2pt}{elitegold!60}
+        ]
+            \begin{center}
+                {\Large \textcolor{deepred}{\textbf{⚠️ IMPORTANT NOTICE}}}
+            \end{center}
+
+            \vspace{0.2cm}
+
+            {\normalsize \textbf{For those bringing meat:}}
+            \begin{itemize}[leftmargin=15pt, itemsep=2pt]
+                \item Please confirm your attendance by \textbf{Friday}
+                \item Bring your meat pre-marinated and ready to grill  
+                \item Let us know by Friday who's bringing what
+            \end{itemize}
+
+            \vspace{0.1cm}
+
+            {\normalsize \textbf{Special Note:}}\\
+            {\small We'll be staying late into the night and praying Fajr together at dawn. Come prepared for a blessed night of food, fellowship, and worship!}
+
+        \end{tcolorbox}
+
+        \vspace{0.3cm}
+
+        % Elite footer
+        \begin{center}
+            \begin{tikzpicture}[scale=0.8]
+                \draw[elitegold, line width=2pt] (-7,0) -- (7,0);
+                \foreach \x in {-4,-2,0,2,4} {
+                    \fill[elitegold] (\x,0) circle (2pt);
+                }
+            \end{tikzpicture}
+
+            \vspace{0.2cm}
+
+            {\Large \textcolor{deepred}{\textbf{Looking forward to seeing you all!}}}
+
+            \vspace{0.1cm}
+
+            {\normalsize \textcolor{warmgray}{\textit{RSVP required • Contact host for more details}}}
+
+        \end{center}
+
+        \end{tcolorbox}
+        
+    \end{minipage}
+};
+\end{tikzpicture}
+
+\end{document}
